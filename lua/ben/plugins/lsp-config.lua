@@ -14,6 +14,7 @@ return {
                     "jdtls",
                     "gopls",
                     "pyright",
+                    "rust_analyzer",
                 }
             })
         end
@@ -32,5 +33,10 @@ return {
     {
         'mfussenegger/nvim-jdtls',
     },
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^5', -- Recommended
+        lazy = false, -- This plugin is already lazy
+    }
 }
 
