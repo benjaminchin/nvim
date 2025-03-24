@@ -15,6 +15,8 @@ return {
                     "gopls",
                     "pyright",
                     "rust_analyzer",
+                    "texlab",
+                    "ts_ls",
                 }
             })
         end
@@ -27,7 +29,17 @@ return {
             lspconfig.clangd.setup({})
             lspconfig.gopls.setup({})
             lspconfig.pyright.setup({})
+            lspconfig.texlab.setup({})
+            lspconfig.ts_ls.setup({})
+            lspconfig.rust_analyzer.setup({})
             --lspconfig.jdtls.setup({}) jdtls is handled via nvim-jdtls
+            vim.diagnostic.config({
+                virtual_text = false,
+                signs = true,
+                underline = true,
+                update_in_insert = false,
+                severity_sort = false,
+            })
         end
     },
     {

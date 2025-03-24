@@ -1,9 +1,12 @@
 return {
-  "iamcco/markdown-preview.nvim",
-  cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-  build = "cd app && npm install",
-  init = function()
-    vim.g.mkdp_filetypes = { "markdown" }
-  end,
-  ft = { "markdown" },
+    'brianhuster/live-preview.nvim',
+    dependencies = {
+        'brianhuster/autosave.nvim',  -- Not required, but recomended for autosaving and sync scrolling
+
+        -- You can choose one of the following pickers
+        'nvim-telescope/telescope.nvim',
+        'ibhagwan/fzf-lua',
+        'echasnovski/mini.pick',
+    },
+    opts = {},
 }

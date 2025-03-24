@@ -31,3 +31,12 @@ vim.opt.scrolloff = 10
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.opt.termguicolors = true
+
+-- disable virtual text
+vim.diagnostic.config({
+    virtual_text = false,
+    virtual_lines = false, -- off by default, have mapping to toggle
+})
+
+vim.opt.cursorline = true
