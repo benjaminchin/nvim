@@ -243,7 +243,93 @@ return {
                     -- colors.bg = "#000000"
                 end
             })
-            vim.cmd.colorscheme "tokyonight-night"
+            --vim.cmd.colorscheme "tokyonight-night"
+        end
+    },
+    {
+        "miikanissi/modus-themes.nvim",
+        priority = 1000,
+        config = function()
+            -- Default options
+            require("modus-themes").setup({
+                -- Theme comes in two styles `modus_operandi` and `modus_vivendi`
+                -- `auto` will automatically set style based on background set with vim.o.background
+                style = "auto",
+                variant = "tinted", -- Theme comes in four variants `default`, `tinted`, `deuteranopia`, and `tritanopia`
+                transparent = false, -- Transparent background (as supported by the terminal)
+                dim_inactive = false, -- "non-current" windows are dimmed
+                hide_inactive_statusline = false, -- Hide statuslines on inactive windows. Works with the standard **StatusLine**, **LuaLine** and **mini.statusline**
+                line_nr_column_background = true, -- Distinct background colors in line number column. `false` will disable background color and fallback to Normal background
+                sign_column_background = true, -- Distinct background colors in sign column. `false` will disable background color and fallback to Normal background
+                styles = {
+                    -- Style to be applied to different syntax groups
+                    -- Value is any valid attr-list value for `:help nvim_set_hl`
+                    comments = { italic = true },
+                    keywords = { italic = true },
+                    functions = {},
+                    variables = {},
+                },
+
+                --- You can override specific color groups to use other groups or a hex color
+                --- Function will be called with a ColorScheme table
+                --- Refer to `extras/lua/modus_operandi.lua` or `extras/lua/modus_vivendi.lua` for the ColorScheme table
+                ---@param colors ColorScheme
+                on_colors = function(colors) end,
+
+                --- You can override specific highlights to use other groups or a hex color
+                --- Function will be called with a Highlights and ColorScheme table
+                --- Refer to `extras/lua/modus_operandi.lua` or `extras/lua/modus_vivendi.lua` for the Highlights and ColorScheme table
+                ---@param highlights Highlights
+                ---@param colors ColorScheme
+                on_highlights = function(highlights, colors) end,
+            })
+        end
+    },
+    {
+        "navarasu/onedark.nvim",
+        priority=1000,
+        config = function()
+            -- Lua
+            require('onedark').setup  {
+                -- Main options --
+                style = 'warm', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+                transparent = false,  -- Show/hide background
+                term_colors = true, -- Change terminal color as per the selected theme style
+                ending_tildes = true, -- Show the end-of-buffer tildes. By default they are hidden
+                cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+
+                -- toggle theme style ---
+                toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+                toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+
+                -- Change code style ---
+                -- Options are italic, bold, underline, none
+                -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
+                code_style = {
+                    comments = 'italic',
+                    keywords = 'italic',
+                    functions = 'none',
+                    strings = 'none',
+                    variables = 'none'
+                },
+
+                -- Lualine options --
+                lualine = {
+                    transparent = false, -- lualine center bar transparency
+                },
+
+                -- Custom Highlights --
+                colors = {}, -- Override default colors
+                highlights = {}, -- Override highlight groups
+
+                -- Plugins Config --
+                diagnostics = {
+                    darker = true, -- darker colors for diagnostic
+                    undercurl = true,   -- use undercurl instead of underline for diagnostics
+                    background = true,    -- use background color for virtual text
+                },
+            }
+            vim.cmd("colorscheme onedark")
         end
     }
 }
