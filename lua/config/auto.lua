@@ -1,4 +1,4 @@
-vim.lsp.enable({'clangd', 'luals', 'pyright' })
+vim.lsp.enable({'clangd', 'luals', 'pyright', 'tsserver' })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
